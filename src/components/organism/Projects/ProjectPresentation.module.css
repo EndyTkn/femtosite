@@ -1,0 +1,168 @@
+.projectContainer {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 20px 0;
+    left: 0;
+    top: 0;
+    background-color: white;
+    
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: 1s;
+    z-index: 5;
+}
+
+.projectCtnInView {
+    animation-name: projectContainerInAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes projectContainerInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    } to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.projectContent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.closeButton {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    top: -15px;
+    width: fit-content;
+    height: fit-content;
+    right: 0;
+    position: absolute;
+    z-index: 15;
+    
+}
+
+.navigation {
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    padding-right: 30px;
+}
+
+.navigation h1 {
+    font-size: 1.2rem;
+}
+
+.option {
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.5s;
+    color: gray;
+}
+
+.selectedOpt {
+    color: var(--primary-color);
+
+    animation-name: selectedAnim;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    font-weight: bold;
+}
+
+@keyframes selectedAnim {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.navigation a:hover {
+    color: var(--primary-color);
+}
+
+.navigation .options {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+.contentSlider {
+    grid-column: 2/5;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    animation-name: sliderAnimation;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sliderAnimation {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.content {
+    grid-column: 2/6;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: 100%;
+    display: relative;
+    z-index: 10;
+    
+}
+
+.contentImg {
+    grid-column: 1/4;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.contentText {
+    grid-column: 4/7;
+    padding: 0 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.contentText h1 {
+    font-family: 'Raleway';
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin: 0;
+}
+
+.contentText p {
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    line-height: 180%;
+    color: gray;
+}

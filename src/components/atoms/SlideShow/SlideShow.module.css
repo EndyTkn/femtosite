@@ -1,0 +1,38 @@
+.slideShow {
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+
+.slidesContainer {
+    overflow: hidden;
+    display: flex;;
+}
+
+.slideElement {
+    box-sizing: content-box;
+    min-width: 100%;
+    min-height: 100%;
+    transition: 2s;
+    transform: translatex(-100%);
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    padding: 5px 0;
+}
+
+.option {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.optionActive {
+    background-color: rgba(255, 255, 255, 0.8);
+}

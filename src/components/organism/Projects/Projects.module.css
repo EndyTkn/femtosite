@@ -1,0 +1,166 @@
+.mainContainer {
+    position: relative;
+}
+
+.section {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    transition: 1s;
+    background-color: white;
+}
+
+.titleContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.titleContent h1 {
+    font-size: 3rem;
+    animation-name: titleAnimation;
+    animation-duration: 3s;
+    transition: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    font-weight: lighter;
+}
+
+@keyframes titleAnimation {
+    from {
+        letter-spacing: 8px;
+    } to {
+        letter-spacing: 14px;
+    }
+}
+
+.cardsContainer {
+    display: grid;
+    grid-auto-columns: 1fr;
+    animation-name: renderProjects;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translateY(100%);
+    z-index: 1;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    background-color: var(--primary-color);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation-name: cardAnimation;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    transition: 1s;
+    background-color: var(--primary-color);
+}
+
+@keyframes cardAnimation {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.card .logoContainer {
+    min-width: 100%;
+    min-height: 40%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: cardContentAnimation;
+    opacity: 0;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.logoContainer img {
+    min-width: 60%;
+}
+
+.card .textContainer {
+    color: white;
+    text-align: center;
+    font-family: 'Raleway';
+    animation-name: cardContentAnimation;
+    opacity: 0;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    transition: 1s;
+}
+
+.textContainer h1 {
+    font-size: 2.4rem;
+    font-weight: lighter;
+}
+
+.textContainer h2 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+@keyframes cardContentAnimation {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes renderProjects {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.projects {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    z-index: 10;
+}
